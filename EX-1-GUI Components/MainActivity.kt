@@ -1,51 +1,52 @@
-package com.example.digitalcafe
+package com.exampleRecColor
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val emailid: EditText = findViewById(R.id.emailid)
-        val password : EditText=findViewById(R.id.password)
-        val validate : Button =findViewById(R.id.validatebtn)
+        val tvText : TextView = findViewById(R.id.tvText)
+        val btFontSize : Button = findViewById(R.id.btFontSize)
+        val btFontColor : Button = findViewById(R.id.btFontColor)
+        val btBackgroundColor : Button = findViewById(R.id.btBackgroundColor)
 
-
-
-        validate.setOnClickListener {
-            val email=emailid.text.toString()
-            val pass=password.text.toString()
-            if(email.isEmpty() || pass.isEmpty() )
-            {
-                Toast.makeText(this,"All fields are Mandatory..!",Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-
-            }
-
-            else if(!email.matches(Regex("^[A-Za-z0-9._%+-]+@rajalakshmi.edu.in$")))
-            {
-                Toast.makeText(this,"Invalid emailid..",Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
-
-            else if(!pass.matches(Regex("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$")))
-            {
-                Toast.makeText(this,"Invalid password...",Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
-            else
-            {
-                Toast.makeText(this,"LOGIN SUCCESSFUL...!",Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
+        var fontSize = 5.0f
+        btFontSize.setOnClickListener{
+            tvText.textSize = fontSize
+            fontSize = (fontSize + 5) % 50
         }
 
+        var fontColor = 0
+        btFontColor.setOnClickListener {
+            when (fontColor % 3) {
+                0 -> tvText.setTextColor(Color.RED)
+                1 -> tvText.setTextColor(Color.GREEN)
+                2 -> tvText.setTextColor(Color.BLUE)
+            }
+            fontColor++
+        }
+
+        var bgColor = 0
+        val linearlayout = findViewById<LinearLayout>(R.id.mainLayout) // FIXED: Use correct ID
+
+        btBackgroundColor.setOnClickListener {
+            when (bgColor % 3) {
+                0 -> linearlayout.setBackgroundColor(Color.RED)
+                1 -> linearlayout.setBackgroundColor(Color.GREEN)
+                2 -> linearlayout.setBackgroundColor(Color.BLUE)
+            }
+            bgColor++
+        }
     }
 }
