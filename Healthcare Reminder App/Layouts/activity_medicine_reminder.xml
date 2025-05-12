@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Medicine Name Input -->
+    <TextView
+        android:id="@+id/medicine_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medicine Name"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/medicine_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Medicine Name"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Dosage Input -->
+    <TextView
+        android:id="@+id/dosage_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dosage"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/dosage_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Dosage"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Frequency Input -->
+    <TextView
+        android:id="@+id/frequency_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frequency"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/frequency_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Frequency (e.g., 3 times a day)"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Time Picker for Reminder -->
+    <TextView
+        android:id="@+id/reminder_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reminder Time"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TimePicker
+        android:id="@+id/reminder_time_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+/>
+    <!-- Save Reminder Button -->
+    <Button
+        android:id="@+id/save_reminder_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Reminder"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
